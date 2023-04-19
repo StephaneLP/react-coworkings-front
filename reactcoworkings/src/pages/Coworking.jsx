@@ -3,20 +3,27 @@ import { useEffect, useState } from "react"
 
 const Coworking = () => {
     const[listCoworkings, setListCoworkings] = useState([])
+    const[sort, setSort] = useState("asc")
+    // let sort = "asc"
 
-    useEffect(() => {
-        fetch("http://localhost:3001/api/coworking")
+    const getCoworkings = (sort) => {
+        fetch("http://localhost:3001/api/coworking?sort=" + sort)
             .then((res) => {
                 return res.json()          
             })
             .then((res) => {
                 setListCoworkings(res.data)
             })
-    },[])    
+    }
+    
+    useEffect(() => {
+        getCoworkings(sort)
+    },[sort])    
 
     const handleClick = (event) => {
-        console.log("ok",event.target.value)
-    }
+        // getCoworkings(event.target.value)
+        setSort(event.target.value)
+   }
 
     return (
         <>
@@ -28,10 +35,10 @@ const Coworking = () => {
                         (
                             <>
                                 <p className="tri">
-                                    <span>Tri : </span>
-                                    <input type="radio" name="tri" value="asc" checked onChange={handleClick} />
+                                    <span>Tri par nom : </span>
+                                    <input type="radio" name="tri" value="asc" onChange={handleClick} checked={sort==="asc"} />
                                     <label>Croissant</label>
-                                    <input type="radio" name="tri" value="desc" onChange={handleClick} />
+                                    <input type="radio" name="tri" value="desc" onChange={handleClick} checked={sort==="desc"} />
                                     <label>Décroissant</label>   
                                 </p>
                                 {listCoworkings.map((el) => {
