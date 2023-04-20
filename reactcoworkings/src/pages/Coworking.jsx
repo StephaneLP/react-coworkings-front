@@ -86,16 +86,41 @@ const Coworking = () => {
 
                                 {listCoworkings.map((el) => {
                                     return (
-                                        <section className="coworkings" key={el.id}>
-                                            <h2>{el.name}</h2>
-                                            <p><span className="sous-titre">Superficie</span> : {el.superficy}</p>
-                                            <p><span className="sous-titre">Nombre de places</span> : {el.capacity}</p>
-                                            <p>
-                                                <span className="sous-titre">Adresse</span> :<br></br>
-                                                {el.address.number} {el.address.street}<br></br>
-                                                {el.address.postCode} {el.address.city}
-                                            </p>
-                                            <button onClick={() => handleDeleteClick(el.id, el.name)}>Supprimer le Coworking</button>
+                                        <section className="coworkings d-flex flex-row" key={el.id}>
+                                            <div className="div-infos">
+                                                <h2>{el.name}</h2>
+                                                        
+                                                       
+                                                <div className="d-flex flex-row" style={{marginBottom: 20 + "px"}}>
+                                                    <div>
+                                                        <p><span className="sous-titre">Superficie</span> : {el.superficy}</p>
+                                                        <p>
+                                                            <span className="sous-titre">Prix</span> :<br />
+                                                            Horaire : {el.price.hour}<br />
+                                                            Journalier : {el.price.day}<br />
+                                                            Mensuel : {el.price.month}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p><span className="sous-titre">Nombre de places</span> : {el.capacity}</p>
+                                                        <p>
+                                                            <span className="sous-titre">Adresse</span> :<br></br>
+                                                            {el.address.number} {el.address.street}<br></br>
+                                                            {el.address.postCode} {el.address.city}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="d-flex flex-row justify-content-center">
+                                                    <button onClick={() => handleDeleteClick(el.id, el.name)}>Modifier</button>
+                                                    <button onClick={() => handleDeleteClick(el.id, el.name)}>Supprimer</button>
+                                                </div>
+
+                                                
+                                                
+                                            </div>
+                                            <div className="div-img">
+                                                <div className="coworkings-img" style={{backgroundImage: `url(${el.picture})`}}></div>
+                                            </div>
                                         </section>
                                     )
                                 })}                            
