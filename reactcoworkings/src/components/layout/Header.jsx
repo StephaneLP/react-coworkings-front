@@ -18,9 +18,9 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link to="/coworking"  className={location.pathname === "/coworking" ? "nav-link active" : "nav-link"} href="#">Espaces de Coworking</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link to="/" className="nav-link" href="#">Utilisateurs</Link>
-                            </li> */}
+                            <li className="nav-item">
+                                <Link to="/create-coworking"  className={location.pathname === "/create-coworking" ? "nav-link active" : "nav-link"} href="#">Créer un Coworking</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

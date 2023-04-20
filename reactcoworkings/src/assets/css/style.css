@@ -7,7 +7,7 @@ header .navbar-brand {
 }
 
 main {
-    background-color: #e0e0e4;
+    background-color: #ffffff;
     box-sizing: border-box;
     padding-top: 40px;
 }
@@ -24,11 +24,11 @@ main h2 {
 }
 
 section.coworkings {
-    background-color: white;
-    border: 1px solid lightgrey;
+    background-color: #f5f5f5;
+    border: 1px solid #b5b5b5;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px 0;
+    margin: 5px 0 10px;
 }
 
 section.coworkings p {
@@ -36,13 +36,36 @@ section.coworkings p {
     font-size: 1.2rem;
 }
 
-section.coworkings p .sous-titre {
+button {
+    padding: 5px 10px;
+    border: 1px solid brown;
+    border-radius: 5px;
+    color: brown;
+}
+
+button:hover {
+    background-color: brown;
+    color: white;
+}
+
+.sous-titre {
     font-weight: 500;
     font-style: italic;
 }
 
+/* Zone de filtre */
+
+.filtre {
+    background-color: #f5f5f5;
+    border: 1px solid #b5b5b5;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0 10px;    
+}
+
 .tri {
-    padding-left: 30px;
+    padding: 0 20px;
+    margin: 5px 0;
 }
 
 .tri span {
@@ -53,3 +76,45 @@ section.coworkings p .sous-titre {
     margin: 0 10px;
 }
 
+.create {
+    background-color: #f5f5f5;
+    border: 1px solid #b5b5b5;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0 10px;  
+}
+
+.create form > div {
+    margin-bottom: 10px;
+}
+
+.create input {
+    margin-left: 10px;
+}
+
+.sous-titre-create {
+    display: inline-block;
+    width: 100px;
+}
+
+.reponse {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.validBox {
+    background-color: white;
+    border: 1px solid #858585;
+    border-radius: 10px;
+    padding: 60px;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+.validBox h2 {
+    margin-bottom: 10px;
+}
