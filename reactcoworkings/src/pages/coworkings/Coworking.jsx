@@ -1,6 +1,6 @@
-import Header from "../components/layout/Header"
+import Header from "../../components/layout/Header"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Coworking = () => {
     const navigate = useNavigate()
@@ -34,25 +34,8 @@ const Coworking = () => {
         setParam(newParam)
     }
 
-    const handleDeleteClick = ((id, name) => {
-        document.querySelector(".validBox").style.visibility = "visible"
-        document.querySelector(".validBoxTitle").textContent = name
-        
-    
-        // fetch("http://localhost:3001/api/coworking/" + id,{
-        //     method: "DELETE",
-        // })
-        // .then((res) => {
-        //     return res.json()          
-        // })
-        // .then((res) => {
-        //     console.log("Coworking supprimé !")
-        //     navigate(0)
-        // })
-    })
-
-    const handleCancelledClick = () => {
-        document.querySelector(".validBox").style.visibility = "hidden"
+    const handleClick = () => {
+        console.log("ok")
     }
 
     return (
@@ -82,41 +65,19 @@ const Coworking = () => {
                                         </label>
                                         <input type="submit" value="Filtrer" />
                                     </form>
+                                    <Link className="button" to={"/create-coworking"} href="#">Créer un Coworking</Link>
                                 </div>
 
                                 {listCoworkings.map((el) => {
                                     return (
                                         <section className="coworkings d-flex flex-row" key={el.id}>
-                                            <div className="div-infos">
+                                            <div className="div-infos d-flex flex-column justify-content-center align-items-center">
                                                 <h2>{el.name}</h2>
-                                                        
-                                                       
-                                                <div className="d-flex flex-row" style={{marginBottom: 20 + "px"}}>
-                                                    <div>
-                                                        <p><span className="sous-titre">Superficie</span> : {el.superficy}</p>
-                                                        <p>
-                                                            <span className="sous-titre">Prix</span> :<br />
-                                                            Horaire : {el.price.hour}<br />
-                                                            Journalier : {el.price.day}<br />
-                                                            Mensuel : {el.price.month}
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <p><span className="sous-titre">Nombre de places</span> : {el.capacity}</p>
-                                                        <p>
-                                                            <span className="sous-titre">Adresse</span> :<br></br>
-                                                            {el.address.number} {el.address.street}<br></br>
-                                                            {el.address.postCode} {el.address.city}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className="d-flex flex-row justify-content-center">
-                                                    <button onClick={() => handleDeleteClick(el.id, el.name)}>Modifier</button>
-                                                    <button onClick={() => handleDeleteClick(el.id, el.name)}>Supprimer</button>
-                                                </div>
-
-                                                
-                                                
+                                                <p>
+                                                    {el.address.number} {el.address.street}<br></br>
+                                                    {el.address.postCode} {el.address.city}
+                                                </p>
+                                                <Link className="button" to={"/single-coworking/" + el.id} href="#">Ouvrir la fiche</Link>
                                             </div>
                                             <div className="div-img">
                                                 <div className="coworkings-img" style={{backgroundImage: `url(${el.picture})`}}></div>
@@ -130,11 +91,6 @@ const Coworking = () => {
                         (<div>Chargement...</div>)
                     }
                 </section>
-                <div className="validBox">
-                    <p>Etes-vous sûr de vouloir supprimer le Coworking</p>
-                    <h2 className="validBoxTitle"></h2>
-                    <button>Oui</button> <button onClick={handleCancelledClick}>Annuler</button>
-                </div>
             </main>
         </>
     )

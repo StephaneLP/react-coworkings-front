@@ -1,7 +1,7 @@
-import Header from "../components/layout/Header"
+import Header from "../../components/layout/Header"
 import { useEffect, useState } from "react"
 
-const CreateCoworking = () => {
+const CoworkingCreate = () => {
     const [msg, setMsg] = useState("")
 
     const handleSubmit = (event) => {
@@ -134,4 +134,4 @@ const CreateCoworking = () => {
     )
 }
 
-export default CreateCoworking
+export default CoworkingCreate
