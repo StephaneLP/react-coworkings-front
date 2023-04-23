@@ -1,4 +1,5 @@
 import Header from "../../components/layout/Header"
+import Loader from "../../components/common/Loader"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -57,7 +58,7 @@ const Coworking = () => {
                                         <label>Décroissant</label>   
                                     </div>
                                 </div>
-                                <div className="filtre">
+                                <div className="filtre d-flex flex-row justify-content-between">
                                     <form onSubmit={handleSubmit}>
                                         <label>
                                             Nom
@@ -88,7 +89,9 @@ const Coworking = () => {
                             </>
                         )
                     :
-                        (<div>Chargement...</div>)
+                        (
+                            <Loader />
+                        )
                     }
                 </section>
             </main>

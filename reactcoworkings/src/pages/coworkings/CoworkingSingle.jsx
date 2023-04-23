@@ -73,7 +73,7 @@ const CoworkingSingle = () => {
                                         </div>
                                     </div>
                                     <div className="d-flex flex-row justify-content-center">
-                                        <Link className="btn-logo" onClick={handleShowModalClick}><img src="/img/pencil3.png" /></Link>
+                                        <Link className="btn-logo" to={"/update-coworking/" + singleCoworking.id} href="#"><img src="/img/pencil3.png" /></Link>
                                         <Link className="btn-logo" onClick={handleShowModalClick}><img src="/img/garbage.png" /></Link>
                                     </div>
                                 </div>

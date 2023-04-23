@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Coworking from "./pages/coworkings/Coworking"
 import CoworkingCreate from "./pages/coworkings/CoworkingCreate"
 import CoworkingSingle from "./pages/coworkings/CoworkingSingle"
+import CoworkingUpdate from "./pages/coworkings/CoworkingUpdate"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/coworking" element={<Coworking />} />      
                 <Route path="/create-coworking" element={<CoworkingCreate />} />
                 <Route path="/single-coworking/:id" element={<CoworkingSingle />} />
+                <Route path="/update-coworking/:id" element={<CoworkingUpdate />} />
             </Routes>
         </BrowserRouter>
     </>
