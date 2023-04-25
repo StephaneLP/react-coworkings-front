@@ -5,7 +5,7 @@ const Header = () => {
     const token = localStorage.getItem("jwt")
     const name = localStorage.getItem("name")
     const blnToken = (token  !== null)
-    console.log(token,name,blnToken)
+
     const location = useLocation()
 
     return (

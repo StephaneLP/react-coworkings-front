@@ -24,15 +24,21 @@ const CoworkingSingle = () => {
     })
 
     const libelle = "Etes-vous sûr de vouloir supprimer le Coworking ?"
+    const token = localStorage.getItem("jwt")
+   
     const handleCancelledClick = (isValidated) => {
         if (isValidated) {
             fetch("http://localhost:3001/api/coworking/" + id,{
                 method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${token}`,
+                },
             })
             .then((res) => {
                 return res.json()          
             })
             .then((res) => {
+                console.log(res)
                 navigate("/coworking")
             })
         } else {
