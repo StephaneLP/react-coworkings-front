@@ -6,6 +6,8 @@ import Coworking from "./pages/coworkings/Coworking"
 import CoworkingCreate from "./pages/coworkings/CoworkingCreate"
 import CoworkingSingle from "./pages/coworkings/CoworkingSingle"
 import CoworkingUpdate from "./pages/coworkings/CoworkingUpdate"
+import Login from "./pages/users/Login"
+import Profile from "./pages/users/Profile"
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
                 <Route path="/create-coworking" element={<CoworkingCreate />} />
                 <Route path="/single-coworking/:id" element={<CoworkingSingle />} />
                 <Route path="/update-coworking/:id" element={<CoworkingUpdate />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+                {/* <Route path="/profile/:id" element={<Profile />} /> */}
             </Routes>
         </BrowserRouter>
     </>

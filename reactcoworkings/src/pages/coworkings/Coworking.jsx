@@ -11,13 +11,21 @@ const Coworking = () => {
         search: "",
     })
 
+    const [requestStatus, setRequestStatus]  =  useState(null)
+
     useEffect(() => {
+        setRequestStatus("waiting")
         fetch("http://localhost:3001/api/coworking?sort=" + param.sort + "&search=" + param.search)
             .then((res) => {
                 return res.json()          
             })
             .then((res) => {
+                if (res.status === 200) {
+                    setRequestStatus("success")
+                }
                 setListCoworkings(res.data)
+            }).catch(() => {
+
             })
     },[param])    
 
