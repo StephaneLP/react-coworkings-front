@@ -20,6 +20,7 @@ const Coworking = () => {
                 return res.json()          
             })
             .then((res) => {
+                console.log(res.status)
                 if (res.status === 200) {
                     setRequestStatus("success")
                 }
